@@ -38,7 +38,6 @@ const fetchCharacters = async (page: number): Promise<ApiResponse> => {
 const CharacterList: React.FC = () => {
   const navigate = useNavigate();
   const search = useSearch({ from: '/', select: s => s });
-  console.log(search);
   const [refreshKey, setRefreshKey] = useState(0);
   const page = Number(search.page) || 1;
 
@@ -69,8 +68,6 @@ const CharacterList: React.FC = () => {
     ],
     []
   );
- 
-  console.log('data?.results', data?.results);
 
   const table = useReactTable({
     data: data?.results ?? [],
@@ -89,7 +86,7 @@ const CharacterList: React.FC = () => {
   const handleRefresh = () => {
     setRefreshKey(k => k + 1);
   };
-   console.log(refreshKey);
+  
   if (isLoading) return <div>Loading...</div>;
   if (isError || !data) return <div>Error loading characters.</div>;
 

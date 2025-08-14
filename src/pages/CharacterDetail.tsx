@@ -22,7 +22,6 @@ const fetchCharacter = async (id: string): Promise<Character> => {
 
 const CharacterDetail: React.FC = () => {
   const { id } = useParams({ from: '/character/$id' });
-  console.log('id.....', id);
   const { data, isLoading, isError } = useQuery({
     queryKey: ['character', id],
     queryFn: () => fetchCharacter(id),
