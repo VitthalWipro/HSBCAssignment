@@ -7,6 +7,7 @@ import {
   flexRender,
 } from '@tanstack/react-table';
 import type { ColumnDef } from '@tanstack/react-table';
+import '../App.css';
 
 interface Character {
   id: number;
@@ -92,7 +93,7 @@ const CharacterList: React.FC = () => {
 
   return (
     <div>
-      <button onClick={handleRefresh}>Refresh</button>
+      <button onClick={handleRefresh}  className="refreshButton">Refresh</button>
       <table>
         <thead>
           {table.getHeaderGroups().map(headerGroup => (
